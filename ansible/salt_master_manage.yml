@@ -1,5 +1,5 @@
 --- 
-- hosts: localhost
+- hosts: master
   become: yes
   gather_facts: no
 
@@ -22,4 +22,9 @@
       copy: 
         src: file-roots.conf
         dest: /etc/salt/master.d/file-roots.conf
+
+    - name: Create base directory
+      file:
+        path: /srv/salt/base
+        state: directory
       notify: Restarting salt-master service

@@ -1,0 +1,5 @@
+[saltmaster]
+master ansible_connection=local
+
+[saltminion]
+

@@ -1,0 +1,25 @@
+--- 
+- hosts: localhost
+  become: yes
+  gather_facts: no
+
+  handlers:
+    - name: Restarting salt-master service
+      service:
+        name: salt-master
+        enabled: true
+        state: restarted
+
+  tasks:
+    - name: Changing default_include options in master config
+      blockinfile:
+        path: /etc/salt/master
+        insertafter: "#default_include: master.d/*.conf"
+        block: |
+          default_include: master.d/*.conf
+
+    - name: copy file-roots.conf file in master.d folder
+      copy: 
+        src: file-roots.conf
+        dest: /etc/salt/master.d/file-roots.conf
+      notify: Restarting salt-master service

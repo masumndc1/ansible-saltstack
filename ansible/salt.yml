@@ -1,0 +1,41 @@
+---
+- hosts: localhost
+  become: yes
+  gather_facts: yes
+  ignore_errors: yes
+
+  tasks:
+    - name: Install wget 
+      apt:
+        name: [ 'wget','apt']
+        state: latest
+
+    - name: Install salt by using wget
+      shell: |
+        wget -O bootstrap-salt.sh https://bootstrap.saltstack.com
+        sh bootstrap-salt.sh
+        creates:
+          - salt.txt
+
+    - name: Install salt master
+      apt:
+        name: salt-master
+        state: latest
+
+    - name: Running salt-master service
+      service:
+        name: salt-master
+        enabled: true
+        state: started
+
+    - name: Running salt-minion service
+      service:
+        name: salt-minion
+        enabled: true
+        state: started
+
+    - name: Signing minions key in local master
+      shell: |
+        sudo salt-key -a debian.masum.com
+        creates:
+          - key_added.txt

@@ -55,9 +55,20 @@ ansible-playbook -i inventories/hosts saltmaster.yml
 - Run saltminion.yml to install salt-minions.
 
 ```bash
-ansible-playbook -i inventories/hosts saltmaster.yml
+ansible-playbook -i inventories/hosts saltminions.yml
 ```
 
+# commands
+version installed.
+
+```bash
+[root@saltmaster ~]# salt --version
+salt 3007.6 (Chlorine)
+[root@saltmaster ~]# salt-master --version
+salt-master 3007.6 (Chlorine)
+[root@saltmaster ~]#
+
+```
 - copy everything of base folder into /srv/salt/base.
 
 

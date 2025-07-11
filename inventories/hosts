@@ -6,12 +6,12 @@ saltminions
 saltmaster
 
 [saltminions]
-salt-alma9-dev1
-salt-alma9-prod
-salt-deb12-dev1
-salt-deb12-prod
-salt-ubu22-dev1
-salt-ubu22-prod
+sys-alma9-dev1
+sys-alma9-prod
+sys-deb12-dev1
+sys-deb12-prod
+sys-ubu22-dev1
+sys-ubu22-prod
 
 [all:vars]
 ansible_user = masum

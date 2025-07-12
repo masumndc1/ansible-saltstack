@@ -3,7 +3,7 @@ saltmaster: saltmaster
 saltmaster_ip: "10.187.244.63"
 interface1: eth0
 git_username: masumndc1
-deb_package:
+deb_pkg:
   - firewalld
   - python3-pip
   - net-tools
@@ -13,15 +13,6 @@ deb_package:
   - wget
   - gcc
   - gpg
-
-salt_package:
-  - git
-  - python3-pygit2
-  - salt-master
-  - salt-ssh
-  - salt-syndic
-  - salt-cloud
-  - salt-api
 
 rpm_pkg:
   - epel-release

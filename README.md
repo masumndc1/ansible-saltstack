@@ -97,3 +97,5 @@ sys-deb12-prod:
 
 ```
 
+# others
+- copy everything of base folder to /srv/salt/base in saltmaster (may be).

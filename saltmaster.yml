@@ -77,10 +77,8 @@
 
   - name: Opening firewall ports in saltmaster
     ansible.posix.firewalld:
-      zone: trusted
       port: "{{ item }}"
       permanent: yes
-      immediate: true
       state: enabled
     with_items: "{{ salt_port }}"
     ignore_errors: true

@@ -24,14 +24,14 @@
 
   - name: install salt-master for RedHat family
     yum:
-      name: "{{ salt_package }}"
+      name: "{{ salt_pkg }}"
       state: latest
       update_cache: yes
     when: ansible_os_family == "RedHat"
 
   - name: install common packages for Ubuntu
     apt:
-      name: "{{ deb_package }}"
+      name: "{{ deb_pkg }}"
       state: latest
       update_cache: yes
     when: ansible_os_family == "Debian"
@@ -50,7 +50,7 @@
 
   - name: install salt-master in Ubuntu
     apt:
-      name: "{{ salt_package }}"
+      name: "{{ salt_pkg }}"
       state: latest
       update_cache: yes
     when: ansible_os_family == "Debian"
@@ -64,7 +64,7 @@
 
   - name: install salt-master in Opensuse
     zypper:
-      name: "{{ salt_package }}"
+      name: "{{ salt_pkg }}"
       state: latest
       update_cache: yes
     when: ansible_os_family == "Suse"

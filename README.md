@@ -9,7 +9,7 @@ root@ubu-incus:~# incus ls
 +----------------+---------+-----------------------+------+-----------+-----------+
 |      NAME      |  STATE  |         IPV4          | IPV6 |   TYPE    | SNAPSHOTS |
 +----------------+---------+-----------------------+------+-----------+-----------+
-| saltmaster     | RUNNING | 10.187.242.28 (eth0)  |      | CONTAINER | 0         |
+| saltmaster     | RUNNING | 10.187.242.63 (eth0)  |      | CONTAINER | 0         |
 +----------------+---------+-----------------------+------+-----------+-----------+
 | sys-alma9-dev1 | RUNNING | 10.187.242.133 (eth0) |      | CONTAINER | 0         |
 +----------------+---------+-----------------------+------+-----------+-----------+
@@ -59,7 +59,7 @@ ansible-playbook -i inventories/hosts saltminions.yml
 ```
 
 # commands
-version installed.
+various related commands.
 
 ```bash
 [root@saltmaster ~]# salt --version
@@ -68,7 +68,32 @@ salt 3007.6 (Chlorine)
 salt-master 3007.6 (Chlorine)
 [root@saltmaster ~]#
 
-```
-- copy everything of base folder into /srv/salt/base.
+[root@saltmaster ~]# salt-key -L
+Accepted Keys:
+sys-alma9-dev1
+sys-alma9-prod
+sys-deb12-dev1
+sys-deb12-prod
+sys-ubu22-dev1
+sys-ubu22-prod
+Denied Keys:
+Unaccepted Keys:
+Rejected Keys:
+[root@saltmaster ~]#
+[root@saltmaster ~]# salt -E '.*' cmd.run 'uname -m'
+sys-alma9-prod:
+    aarch64
+sys-deb12-dev1:
+    aarch64
+sys-ubu22-prod:
+    aarch64
+sys-ubu22-dev1:
+    aarch64
+sys-alma9-dev1:
+    aarch64
+sys-deb12-prod:
+    aarch64
+[root@saltmaster ~]#
 
+```
 

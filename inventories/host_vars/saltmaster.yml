@@ -3,7 +3,6 @@ hostname: saltmaster
 saltmaster_ip: "10.187.244.63"
 interface1: eth0
 git_username: masumndc1
-git_repo: puppet-control
 deb_package:
   - firewalld
   - python3-pip
@@ -17,7 +16,6 @@ deb_package:
 
 salt_package:
   - git
-  - firewalld
   - python3-pygit2
   - salt-master
   - salt-ssh
@@ -27,6 +25,7 @@ salt_package:
 
 rpm_pkg:
   - epel-release
+  - firewalld
   - python3-pygit2
   - python3-pygithub
   - python3-PyGithub
